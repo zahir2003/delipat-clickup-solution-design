@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.class
+
+# Virtual environments
+bridgeline/
+.venv/
+venv/
+
+# Environment variables
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Temporary HTML exports
+*.html
+
+# Python build files
+build/
+dist/
+*.egg-info/
+
+# Test/cache
+.pytest_cache/
+.coverage
+htmlcov/
