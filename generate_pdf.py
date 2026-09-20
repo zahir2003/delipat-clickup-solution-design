@@ -96,8 +96,8 @@ FX_RATE = "1 USD = INR 95.89"
 FX_RATE_DATE = "19 September 2026"
 FX_RATE_SOURCE = "https://hdfcsky.com/news/rupee-slips-0-3percent-to-95-89-as-fed-hike-and-104-brent-test-rbis-96-red-line"
 
-# The five recorded build days are kept as dated headings in the final PDF.
-# These dates are a presentation layer for the five-day build-log sequence;
+# The six recorded build days are kept as dated headings in the final PDF.
+# These dates are a presentation layer for the six-day build-log sequence;
 # they do not invent additional incidents or failures.
 BUILD_LOG_DATES = {
     "Day 1": "15 September 2026",
@@ -105,6 +105,7 @@ BUILD_LOG_DATES = {
     "Day 3": "17 September 2026",
     "Day 4": "18 September 2026",
     "Day 5": "19 September 2026",
+    "Day 6": "20 September 2026",
 }
 
 PLAN_SOURCE_REGISTER = [
@@ -400,13 +401,13 @@ def compact_build_log_layout(text):
 
 
 def add_build_log_dates(text):
-    """Add the dated labels required by the assignment to Day 1-Day 5 headings."""
+    """Add the dated labels required by the assignment to Day 1-Day 6 headings."""
     lines = normalise(text).splitlines()
     out = []
     for line in lines:
         stripped = line.strip()
         match = re.match(
-            r"^(#{1,4}\s*)?(Day\s+[1-5])\s*(?:[—\-:]\s*)?(.*)$", stripped, re.I
+            r"^(#{1,4}\s*)?(Day\s+[1-6])\s*(?:[—\-:]\s*)?(.*)$", stripped, re.I
         )
         if match:
             prefix = match.group(1) or ""
@@ -544,7 +545,7 @@ def clean_build_log(text):
         text,
     )
 
-    # Remove stale source metadata, then add the required dated Day 1-Day 5 headings.
+    # Remove stale source metadata, then add the required dated Day 1-Day 6 headings.
     text = remove_date_time_lines(text)
 
     # Clean empty code-fence remnants and excessive blank lines.
@@ -1554,7 +1555,7 @@ def build_pdf():
         "Build Log records the implementation and every limitation actually observed during the build; no unsupported failure is fabricated.",
         "The submitted source documents in the ZIP are the same cleaned versions used to render this PDF.",
         "Plan Comparison includes a source/link, checked date and evidence label register, and the Date checked column is preserved in the rendered PDF.",
-        "Build Log Day 1-Day 5 entries are dated without inventing unsupported incidents.",
+        "Build Log Day 1-Day 6 entries are dated without inventing unsupported incidents.",
         "The quote explicitly maps 12 Project Managers + 27 Delivery Consultants to the 39-seat working model and explains why no guest/limited-seat savings are assumed without evidence.",
         "FX conversion states the rate, date and source used.",
         "Exactly 10 required screenshots are included; Screenshot #5 combines the original WIP report with the original ClickUp dashboard calculation evidence so both 132 WIP hours and $19,790 are visibly supported.",
@@ -1895,7 +1896,7 @@ def main():
     start = time.perf_counter()
 
     print("=" * 68)
-    print("FINAL CLICKUP PDF GENERATOR — SUBMISSION READY VERSION")
+    print("FINAL CLICKUP PDF GENERATOR — SUBMISSION READY VERSION — DAY 6 FIX")
     print("=" * 68)
 
     FINAL.mkdir(parents=True, exist_ok=True)
