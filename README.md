@@ -9,7 +9,7 @@ A ClickUp-based billing and work-management solution created for the **Nordvik C
 **Total People:** 39  
 **Project Managers:** 12  
 **Delivery Consultants:** 27  
-**Evidence Checked:** 20 September 2026
+**Evidence Checked:** 21 September 2026
 
 ---
 
